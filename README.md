@@ -24,7 +24,7 @@ npm install coloria
 | `Name`       | `Value`                             |
 | ------------ | ----------------------------------- |
 | `Name`       | `coloria`                           |
-| `Version`    | `0.6.0`                             |
+| `Version`    | `0.7.0`                             |
 | `Author`     | `iaseth`                            |
 | `Homepage`   | `https://github.com/iaseth/coloria` |
 | `Repository` | `iaseth/coloria`                    |

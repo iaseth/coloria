@@ -1,7 +1,7 @@
 import { rgbToHex } from "./colorutils";
 import { sanitizeCodeName } from "./utils";
 
-
+export const DEFAULT_COLOR_NAME = "Anoncolor";
 
 export class Color {
 	r: number = 0;
@@ -12,7 +12,7 @@ export class Color {
 	readonly name: string;
 	readonly codeName: string;
 
-	constructor(rgb: number[], name: string="Anoncolor") {
+	constructor(rgb: number[], name: string=DEFAULT_COLOR_NAME) {
 		this.r = rgb[0];
 		this.g = rgb[1];
 		this.b = rgb[2];
@@ -25,8 +25,8 @@ export class Color {
 		return [this.r, this.g, this.b];
 	}
 
-	makeCopy () : Color {
-		const copy = new Color(this.rgb, this.name);
+	makeCopy (name: string|null=null) : Color {
+		const copy = new Color(this.rgb, name || this.name);
 		return copy;
 	}
 }
