@@ -14,9 +14,9 @@ export class Color {
 
 	constructor(rgb: number[], name: string=DEFAULT_COLOR_NAME) {
 		if (rgb && rgb.length >= 3) {
-			this.r = rgb[0];
-			this.g = rgb[1];
-			this.b = rgb[2];
+			this.r = rgb[0] % 256;
+			this.g = rgb[1] % 256;
+			this.b = rgb[2] % 256;
 		}
 
 		this.hex = rgbToHex(this.rgb);

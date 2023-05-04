@@ -31,3 +31,21 @@ export function getNeutral (c: number, name: string=DEFAULT_COLOR_NAME) : Color 
 	const color = new Color([c, c, c], name);
 	return color;
 }
+
+
+
+export function fromHexSafe (hex: string, name: string) : Color {
+	const color = fromHex(hex, name);
+	if (color) {
+		return color;
+	}
+	return new Color([], name);
+}
+
+export function fromRgbSafe (rgb: number[], name: string) : Color {
+	const color = fromRgb(rgb, name);
+	if (color) {
+		return color;
+	}
+	return new Color([], name);
+}

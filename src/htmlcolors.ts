@@ -1,14 +1,6 @@
 import { Color } from "./color";
-import { fromHex } from "./colorfactory";
+import { fromHexSafe } from "./colorfactory";
 
-
-function fromHexSafe (hex: string, name: string) : Color {
-	const color = fromHex(hex, name);
-	if (color) {
-		return color;
-	}
-	return new Color([], name);
-}
 
 
 class HtmlColors {
