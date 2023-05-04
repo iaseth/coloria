@@ -1,6 +1,6 @@
 
 # Coloria
-[`Coloria`](https://www.npmjs.com/package/Coloria) is a JavaScript library for color conversion and palette generation.
+[`Coloria`](https://www.npmjs.com/package/coloria) is a JavaScript library for color conversion and palette generation.
 
 
 ## Table of contents
