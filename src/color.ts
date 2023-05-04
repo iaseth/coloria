@@ -1,7 +1,16 @@
 import { rgbToHex } from "./colorutils";
 import { sanitizeCodeName } from "./utils";
 
+
+
 export const DEFAULT_COLOR_NAME = "Anoncolor";
+
+function printColors (heading: string, colors: Color[]) {
+	console.log(heading);
+	for (let idx=0; idx<colors.length; idx++) {
+		console.log(`\t#${idx+1} ${colors[idx]}`);
+	}
+}
 
 export class Color {
 	r: number = 0;
@@ -32,4 +41,51 @@ export class Color {
 		const copy = new Color(this.rgb, name || this.name);
 		return copy;
 	}
+
+	getColorsInBetween (other: Color, n: number = 5) : Color[] {
+		const colors = [];
+
+		for (let x=0; x<n; x++) {
+			const rgbArray = [];
+			for (const c in [0, 1, 2]) {
+				const base = this.rgb[c];
+				const summit = other.rgb[c];
+				const gap = summit - base;
+
+				const step = (gap / (n+1));
+				const offset = step * (x + 1);
+				const component = Math.floor(base + offset);
+				rgbArray.push(component);
+			}
+
+			const color = new Color(rgbArray);
+			colors.push(color);
+		}
+
+		return colors;
+	}
+
+	getShades (n: number = 5) : Color[] {
+		return this.getColorsInBetween(BLACK, n);
+	}
+
+	getTints (n: number = 5) : Color[] {
+		return this.getColorsInBetween(WHITE, n);
+	}
+
+	getTones (n: number = 5) : Color[] {
+		return this.getColorsInBetween(GRAY, n);
+	}
+
+	printShades = () => printColors(`5 shades of ${this.name}`, this.getShades());
+	printTints = () => printColors(`5 tints of ${this.name}`, this.getTints());
+	printTones = () => printColors(`5 tones of ${this.name}`, this.getTones());
+
+	toString () {
+		return `${this.name} [${this.rgb.join(', ')}]`;
+	}
 }
+
+const BLACK = new Color([0, 0, 0]);
+const GRAY = new Color([127, 127, 127]);
+const WHITE = new Color([255, 255, 255]);

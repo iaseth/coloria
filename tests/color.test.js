@@ -1,6 +1,6 @@
 const coloria = require("../dist");
 
-const { fromHex, fromRgb, getNeutral } = coloria;
+const { fromHex, fromRgb, getNeutral, htmlcolors } = coloria;
 
 test("fromHex", () => {
 	expect(fromHex("#000").hex).toStrictEqual("#000000");
@@ -22,4 +22,9 @@ test("getNeutral", () => {
 	expect(getNeutral(0).hex).toStrictEqual("#000000");
 	expect(getNeutral(128).hex).toStrictEqual("#808080");
 	expect(getNeutral(255).hex).toStrictEqual("#ffffff");
+});
+
+
+test("getColorsInBetween", () => {
+	//
 });

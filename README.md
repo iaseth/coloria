@@ -21,14 +21,15 @@ npm install coloria
 
 
 ## Package details
-| `Name`       | `Value`                             |
-| ------------ | ----------------------------------- |
-| `Name`       | `coloria`                           |
-| `Version`    | `0.8.0`                             |
-| `Author`     | `iaseth`                            |
-| `Homepage`   | `https://github.com/iaseth/coloria` |
-| `Repository` | `iaseth/coloria`                    |
-| `License`    | `MIT`                               |
+| `Name`        | `Value`                                                                        |
+| ------------- | ------------------------------------------------------------------------------ |
+| `Name`        | `coloria`                                                                      |
+| `Description` | `Coloria is a JavaScript library for color conversion and palette generation.` |
+| `Version`     | `0.9.0`                                                                        |
+| `Author`      | `iaseth`                                                                       |
+| `Homepage`    | `https://github.com/iaseth/coloria`                                            |
+| `Repository`  | `iaseth/coloria`                                                               |
+| `License`     | `MIT`                                                                          |
 
 
 
