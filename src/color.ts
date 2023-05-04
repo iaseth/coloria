@@ -13,9 +13,12 @@ export class Color {
 	readonly codeName: string;
 
 	constructor(rgb: number[], name: string=DEFAULT_COLOR_NAME) {
-		this.r = rgb[0];
-		this.g = rgb[1];
-		this.b = rgb[2];
+		if (rgb && rgb.length >= 3) {
+			this.r = rgb[0];
+			this.g = rgb[1];
+			this.b = rgb[2];
+		}
+
 		this.hex = rgbToHex(this.rgb);
 		this.name = name.trim();
 		this.codeName = sanitizeCodeName(this.name);
