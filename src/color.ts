@@ -1,4 +1,5 @@
 import { rgbToHex } from "./colorutils";
+import { TailwindColor } from "./tailwindcolor";
 import { sanitizeCodeName } from "./utils";
 
 
@@ -48,6 +49,10 @@ export class Color {
 
 	get rgb () : number[] {
 		return [this.r, this.g, this.b];
+	}
+
+	get valueS () : string {
+		return `${this.value}`;
 	}
 
 	makeCopy (name: string|null=null) : Color {
@@ -104,9 +109,16 @@ export class Color {
 		return palette;
 	}
 
+	getTailwindPalette () : TailwindColor {
+		const palette = this.getStandardPalette();
+		const paletteObject: any = {};
+		palette.forEach(color => paletteObject[color.valueS] = color.hex);
+		const tailwindcolor: TailwindColor = paletteObject;
+		return tailwindcolor;
+	}
+
 	printPalette = (n: number=5) => printPalette(`Palette for ${this.name}:`, this.getPalette(n));
 	printStandardPalette = () => printPalette(`Standard palette for ${this.name}:`, this.getStandardPalette());
-
 
 	printShades = (n: number=5) => printColors(`5 shades of ${this.name}`, this.getShades(n));
 	printTints = (n: number=5) => printColors(`5 tints of ${this.name}`, this.getTints(n));

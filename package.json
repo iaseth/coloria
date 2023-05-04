@@ -1,6 +1,6 @@
 {
   "name": "coloria",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Coloria is a JavaScript library for color conversion and palette generation.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
