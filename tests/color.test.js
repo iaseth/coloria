@@ -24,7 +24,27 @@ test("getNeutral", () => {
 	expect(getNeutral(255).hex).toStrictEqual("#ffffff");
 });
 
-
+const { Black, White, Red } = htmlcolors;
 test("getColorsInBetween", () => {
-	//
+	expect(Black.getColorsInBetween(Red).length).toBe(5);
+	expect(Black.getColorsInBetween(Red, 3).length).toBe(3);
+	expect(Black.getColorsInBetween(Red, 7).length).toBe(7);
+});
+
+test("getShades", () => {
+	expect(Black.getShades().length).toBe(5);
+	expect(Black.getShades(4).length).toBe(4);
+	expect(Black.getShades(9).length).toBe(9);
+});
+
+test("getPalette", () => {
+	expect(Black.getPalette().length).toBe(11);
+	expect(Black.getPalette(4).length).toBe(9);
+	expect(Black.getPalette(9).length).toBe(19);
+});
+
+test("getStandardPalette", () => {
+	expect(Black.getStandardPalette().length).toBe(11);
+	expect(Black.getStandardPalette(4).length).toBe(11);
+	expect(Black.getStandardPalette(9).length).toBe(11);
 });
