@@ -19,9 +19,9 @@ export function hexToRgb (hex: string) : number[]|null {
 	}
 
 	if (hex.length === 3) {
-		const r = parseInt(hex[0], 16);
-		const g = parseInt(hex[0], 16);
-		const b = parseInt(hex[0], 16);
+		const r = parseInt(hex[0] + hex[0], 16);
+		const g = parseInt(hex[1] + hex[1], 16);
+		const b = parseInt(hex[2] + hex[2], 16);
 		return [r, g, b];
 	} else if (hex.length === 6) {
 		const r = parseInt(hex.slice(0, 2), 16);
