@@ -25,3 +25,12 @@ test("hexToRgb", () => {
 	expect(hexToRgb("#0f0")).toStrictEqual([0, 255, 0]);
 	expect(hexToRgb("#00f")).toStrictEqual([0, 0, 255]);
 });
+
+test("sanitizeCodeName", () => {
+	const { sanitizeCodeName } = coloria;
+
+	expect(sanitizeCodeName("Foo")).toStrictEqual("foo");
+	expect(sanitizeCodeName(" FOO  ")).toStrictEqual("foo");
+	expect(sanitizeCodeName("Foo$")).toStrictEqual("foo");
+	expect(sanitizeCodeName("Fo o45")).toStrictEqual("foo");
+});

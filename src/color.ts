@@ -1,4 +1,5 @@
 import { hexToRgb, rgbToHex } from "./colorutils";
+import { sanitizeCodeName } from "./utils";
 
 
 
@@ -8,12 +9,16 @@ class Color {
 	b: number = 0;
 	a: number = 100;
 	hex: string;
+	readonly name: string;
+	readonly codeName: string;
 
-	constructor(rgb: number[]) {
+	constructor(rgb: number[], name: string="Anoncolor") {
 		this.r = rgb[0];
 		this.g = rgb[1];
 		this.b = rgb[2];
 		this.hex = rgbToHex(this.rgb);
+		this.name = name.trim();
+		this.codeName = sanitizeCodeName(this.name);
 	}
 
 	get rgb () : number[] {
