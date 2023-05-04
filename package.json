@@ -5,12 +5,15 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "testwatch": "jest --watchAll --verbose"
   },
   "keywords": [],
   "author": "iaseth",
-  "author": "iaseth",
   "homepage": "https://github.com/iaseth/coloria",
   "repository": "iaseth/coloria",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
 }
