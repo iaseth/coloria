@@ -1,0 +1,32 @@
+
+# Coloria
+Coloria is a JavaScript library for color conversion and palette generation.
+
+
+## Table of contents
+{{ tableofcontents(doc) }}
+
+
+## Installation
+You can install {{ "coloria" | NpmLink }} with the following command:
+=> npm install coloria
+
+
+## Package details
+{{ npm.packageDetails() }}
+
+
+## Dependencies
+{{ npm.dependencyTable() }}
+
+
+## Dev dependencies
+{{ npm.devDependencyTable() }}
+
+
+## License
+{{ "LICENSE.md" | File }}
+
+
+{{ giveCredit() }}
+
