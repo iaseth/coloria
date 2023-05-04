@@ -1,4 +1,4 @@
 
-export { fromColor, fromHex, fromRgb } from './color';
+export { fromColor, fromHex, fromRgb } from './colorfactory';
 export { hexToRgb, rgbToHex } from './colorutils';
 export { sanitizeCodeName } from './utils';
