@@ -24,7 +24,7 @@ npm install coloria
 | `Name`       | `Value`                             |
 | ------------ | ----------------------------------- |
 | `Name`       | `coloria`                           |
-| `Version`    | `0.3.0`                             |
+| `Version`    | `0.4.0`                             |
 | `Author`     | `iaseth`                            |
 | `Homepage`   | `https://github.com/iaseth/coloria` |
 | `Repository` | `iaseth/coloria`                    |
@@ -37,7 +37,10 @@ This package has no dependencies.
 
 
 ## Dev dependencies
-This package has no devDependencies.
+|     | `Package`   | `Version`   |
+| --- | ----------- | ----------- |
+| 1   | `jest`      | `^29.5.0`   |
+
 
 
 ## License

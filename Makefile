@@ -1,10 +1,13 @@
 
-default: ts
+default: ts test
 
-prepare: license readme ts
+prepare: ts test license readme
 
 ts:
 	tsc
+
+test:
+	npm test
 
 publish: prepare
 	npm publish
