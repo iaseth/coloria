@@ -10,6 +10,48 @@ Coloria is a JavaScript library for color conversion and palette generation.
 ## Installation
 You can install {{ "coloria" | NpmLink }} with the following command:
 => npm install coloria
+Or you can install it as a dev dependency:
+=> npm install -D coloria
+
+
+## Getting started
+
+### Importing Coloria
+First import the `coloria` module:
+=> import coloria from "coloria";
+
+Or if you are using CommonJS modules:
+=> const coloria = require("coloria");
+
+### Creating Colors
+The `coloria` object contains many factory methods that allow you to create colors from your favorite format:
+
+#### Creating Colors from RGB values
+=> const black = coloria.fromRgb([0, 0, 0], "Black");
+Here, the second argument is the colorName, which is optional.
+
+#### Creating Colors from Hex
+=> const red = coloria.fromHex("#ff0000", "Red");
+
+#### Creating Colors from existing Colors
+=> const anotherRed = coloria.fromColor(red, "AnotherRed");
+Or, you can also do this with a method on the Color object:
+=> const anotherRed = red.makeCopy("AnotherRed");
+
+#### Creating Neutral Colors
+Neutral colors are those which have equal `r`, `g` and `b` values.
+Examples are black, white and grey.
+Because of how frequently they are used, there is a special `getNeutral` factory method to keep your code DRY:
+=> const black = coloria.getNeutral(0, "Black");
+
+
+### Getting Shades
+The `Color` class has special methods `getShades()`, `getTints()` and `getTones()` that allow you to easily create `shades`, `tints` and `tones` of any color.
+Each of these methods accept an optional `length` argument and return an array of `Color` object.
+=> const shades = color.getShades();
+=> const tints = color.getTints();
+=> const tones = color.getTones(10);
+
 
 
 ## Package details
