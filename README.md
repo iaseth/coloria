@@ -1,6 +1,6 @@
 
 # Coloria
-Coloria is a JavaScript library for color conversion and palette generation.
+[`Coloria`](https://www.npmjs.com/package/Coloria) is a JavaScript library for color conversion and palette generation.
 
 
 ## Table of contents
@@ -52,7 +52,7 @@ The `coloria` object contains many factory methods that allow you to create colo
 ```
 const black = coloria.fromRgb([0, 0, 0], "Black");
 ```
-Here, the second argument is the colorName, which is optional.
+Here, the second argument is the `colorName`, which is optional.
 
 #### Creating Colors from Hex
 ```
@@ -69,9 +69,9 @@ const anotherRed = red.makeCopy("AnotherRed");
 ```
 
 #### Creating Neutral Colors
-Neutral colors are those which have equal `r`, `g` and `b` values.
+Neutral colors are those which have identical `r`, `g` and `b` values.
 Examples are black, white and grey.
-Because of how frequently they are used, there is a special `getNeutral` factory method to keep your code DRY:
+Because of how frequently they are used, there is a special `getNeutral()` factory method to help keep your code DRY:
 ```
 const black = coloria.getNeutral(0, "Black");
 ```
@@ -79,7 +79,7 @@ const black = coloria.getNeutral(0, "Black");
 
 ### Getting Shades
 The `Color` class has special methods `getShades()`, `getTints()` and `getTones()` that allow you to easily create `shades`, `tints` and `tones` of any color.
-Each of these methods accept an optional `length` argument and return an array of `Color` object.
+Each of these methods accept an optional `length` argument and return an array of `Color` objects.
 ```
 const shades = color.getShades();
 ```
