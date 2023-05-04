@@ -4,6 +4,11 @@ import { sanitizeCodeName } from "./utils";
 
 
 export const DEFAULT_COLOR_NAME = "Anoncolor";
+const STANDARD_VALUES: number[] = [
+	50, 100, 200, 300, 400,
+	500,
+	600, 700, 800, 900, 950,
+];
 
 function printColors (heading: string, colors: Color[]) {
 	console.log(heading);
@@ -20,6 +25,7 @@ export class Color {
 	hex: string;
 	readonly name: string;
 	readonly codeName: string;
+	value: number = 500;
 
 	constructor(rgb: number[], name: string=DEFAULT_COLOR_NAME) {
 		if (rgb && rgb.length >= 3) {
@@ -77,12 +83,35 @@ export class Color {
 		return this.getColorsInBetween(GRAY, n);
 	}
 
+
+	getPalette (n: number = 5) : Color[] {
+		const shades = this.getShades(n).reverse();
+		const tints = this.getTints(n);
+		const palette = [...shades, this.makeCopy(), ...tints];
+		return palette;
+	}
+
+	getStandardPalette () : Color[] {
+		const palette = this.getPalette();
+		palette.forEach((c, idx) => c.value = STANDARD_VALUES[idx]);
+		return palette;
+	}
+
+	printStandardPalette () {
+		const palette = this.getStandardPalette();
+		console.log(`Standard palette for ${this.name}:`);
+		palette.forEach((color, idx) => {
+			console.log(`\t#${idx+1} ${color}`);
+		});
+	}
+
+
 	printShades = () => printColors(`5 shades of ${this.name}`, this.getShades());
 	printTints = () => printColors(`5 tints of ${this.name}`, this.getTints());
 	printTones = () => printColors(`5 tones of ${this.name}`, this.getTones());
 
 	toString () {
-		return `${this.name} [${this.rgb.join(', ')}]`;
+		return `${this.name} (${this.value}) [${this.rgb.join(', ')}]`;
 	}
 }
 
