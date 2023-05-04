@@ -17,6 +17,13 @@ function printColors (heading: string, colors: Color[]) {
 	}
 }
 
+function printPalette (heading: string, palette: Color[]) {
+	console.log(heading);
+	palette.forEach((color, idx) => {
+		console.log(`\t#${idx+1} ${color}`);
+	});
+}
+
 export class Color {
 	r: number = 0;
 	g: number = 0;
@@ -97,18 +104,13 @@ export class Color {
 		return palette;
 	}
 
-	printStandardPalette () {
-		const palette = this.getStandardPalette();
-		console.log(`Standard palette for ${this.name}:`);
-		palette.forEach((color, idx) => {
-			console.log(`\t#${idx+1} ${color}`);
-		});
-	}
+	printPalette = (n: number=5) => printPalette(`Palette for ${this.name}:`, this.getPalette(n));
+	printStandardPalette = () => printPalette(`Standard palette for ${this.name}:`, this.getStandardPalette());
 
 
-	printShades = () => printColors(`5 shades of ${this.name}`, this.getShades());
-	printTints = () => printColors(`5 tints of ${this.name}`, this.getTints());
-	printTones = () => printColors(`5 tones of ${this.name}`, this.getTones());
+	printShades = (n: number=5) => printColors(`5 shades of ${this.name}`, this.getShades(n));
+	printTints = (n: number=5) => printColors(`5 tints of ${this.name}`, this.getTints(n));
+	printTones = (n: number=5) => printColors(`5 tones of ${this.name}`, this.getTones(n));
 
 	toString () {
 		return `${this.name} (${this.value}) [${this.rgb.join(', ')}]`;
