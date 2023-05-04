@@ -33,11 +33,11 @@ npm install coloria
 
 
 ## Dependencies
-`packageJson.dependencies` NOT Found!
+This package has no dependencies.
 
 
 ## Dev dependencies
-`packageJson.devDependencies` NOT Found!
+This package has no devDependencies.
 
 
 ## License
