@@ -44,3 +44,18 @@ test("hslToRgb", () => {
 	expect(hslToRgb([120, 100, 50])).toStrictEqual([0, 255, 0]);
 	expect(hslToRgb([240, 100, 50])).toStrictEqual([0, 0, 255]);
 });
+
+
+test("hslToHsv", () => {
+	const { hslToHsv } = coloria;
+
+	expect(hslToHsv([0, 100, 50])).toStrictEqual([0, 100, 100]);
+	expect(hslToHsv([156, 100, 50])).toStrictEqual([156, 100, 100]);
+});
+
+test("hsvToHsl", () => {
+	const { hsvToHsl } = coloria;
+
+	expect(hsvToHsl([0, 100, 100])).toStrictEqual([0, 100, 50]);
+	expect(hsvToHsl([156, 100, 100])).toStrictEqual([156, 100, 50]);
+});
