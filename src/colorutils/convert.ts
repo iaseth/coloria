@@ -99,7 +99,7 @@ export function rgbToHsl (rgb: number[]) : number[] {
 
 
 
-export function hsl2hsv (hsl: number[]) : number[] {
+export function hslToHsv (hsl: number[]) : number[] {
 	const [h, s, l] = hsl;
 	const v = Math.round(l + (s*Math.min(l, 100-l)/100));
 	let s2 = 0;
@@ -110,7 +110,7 @@ export function hsl2hsv (hsl: number[]) : number[] {
 	return [h, s2, v];
 }
 
-export function hsv2hsl (hsv: number[]) : number[] {
+export function hsvToHsl (hsv: number[]) : number[] {
 	const [h, s, v] = hsv;
 	const l = Math.round(v - v*s/200);
 	let s2 = 0;
@@ -119,6 +119,17 @@ export function hsv2hsl (hsv: number[]) : number[] {
 		s2 = Math.round(100 * (v-l)/Math.min(l, 100-l));
 	}
 	return [h, s2, l];
+}
+
+
+
+export function hsvTorgb (hsv: number[]) : number[] {
+	const hsl = hsvToHsl(hsv);
+	return hslToRgb(hsl);
+}
+export function rgbTohsv (rgb: number[]) : number[] {
+	const hsl = rgbToHsl(rgb);
+	return hslToHsv(hsl);
 }
 
 

@@ -4,6 +4,8 @@ export { fromColor, fromHex, fromRgb, getNeutral } from './colorfactory';
 export {
 	hexToRgb, rgbToHex,
 	hslToRgb, rgbToHsl,
+	hslToHsv, hsvToHsl,
+	hsvTorgb, rgbTohsv,
 } from './colorutils';
 
 export { htmlcolors } from './htmlcolors';

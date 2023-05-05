@@ -1,4 +1,4 @@
-import { rgbToHex } from "./colorutils";
+import { rgbToHex, rgbToHsl, rgbTohsv } from "./colorutils";
 import { TailwindColor } from "./tailwindcolor";
 import { sanitizeCodeName } from "./utils";
 
@@ -57,15 +57,15 @@ export class Color {
 	}
 
 	get hsl () : number[] {
-		return [0, 0, 0];
+		return rgbToHsl(this.rgb);
 	}
 
 	get hsv () : number[] {
-		return [0, 0, 0];
+		return rgbTohsv(this.rgb);
 	}
 
 	get hsb () : number[] {
-		return [0, 0, 0];
+		return rgbTohsv(this.rgb);
 	}
 
 	get valueS () : string {
