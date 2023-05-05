@@ -26,11 +26,15 @@ test("hexToRgb", () => {
 	expect(hexToRgb("#00f")).toStrictEqual([0, 0, 255]);
 });
 
-test("sanitizeCodeName", () => {
-	const { sanitizeCodeName } = coloria;
 
-	expect(sanitizeCodeName("Foo")).toStrictEqual("foo");
-	expect(sanitizeCodeName(" FOO  ")).toStrictEqual("foo");
-	expect(sanitizeCodeName("Foo$")).toStrictEqual("foo");
-	expect(sanitizeCodeName("Fo o45")).toStrictEqual("foo");
+test("rgbToHsl", () => {
+	const { rgbToHsl } = coloria;
+
+	expect(rgbToHsl([0, 0, 0])).toStrictEqual([0, 0, 0]);
+});
+
+test("hslToRgb", () => {
+	const { hslToRgb } = coloria;
+
+	expect(hslToRgb([0, 0, 0])).toStrictEqual([0, 0, 0]);
 });

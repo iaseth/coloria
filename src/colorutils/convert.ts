@@ -32,3 +32,93 @@ export function hexToRgb (hex: string) : number[]|null {
 		return null;
 	}
 }
+
+
+
+export function hslToRgb (hsl: number[]) : number[] {
+	const [h, s, l] = hsl;
+
+	const c = (1 - Math.abs(2 * l - 1)) * s;
+	const x = c * (1 - Math.abs((h / 60) % 2 - 1));
+	const m = l - c/2;
+
+	let r = 0, g = 0, b = 0;
+
+	if (0 <= h && h < 60) {
+		r = c; g = x; b = 0;
+	} else if (60 <= h && h < 120) {
+		r = x; g = c; b = 0;
+	} else if (120 <= h && h < 180) {
+		r = 0; g = c; b = x;
+	} else if (180 <= h && h < 240) {
+		r = 0; g = x; b = c;
+	} else if (240 <= h && h < 300) {
+		r = x; g = 0; b = c;
+	} else if (300 <= h && h < 360) {
+		r = c; g = 0; b = x;
+	}
+
+	r = Math.round((r + m) * 255);
+	g = Math.round((g + m) * 255);
+	b = Math.round((b + m) * 255);
+
+	return [r, g, b];
+}
+
+export function rgbToHsl (rgb: number[]) : number[] {
+	const [r, g, b] = rgb.map(c => c/255);
+
+	const cmin = Math.min(r, g, b);
+	const cmax = Math.max(r, g, b);
+	const delta = cmax - cmin;
+
+	let h = 0, s = 0, l = 0;
+
+	if (delta === 0) {
+		h = 0;
+	} else if (cmax === r) {
+		h = ((g-b) / delta) + 6;
+	} else if (cmax === g) {
+		h = ((b-r) / delta) + 2;
+	} else {
+		h = ((r-g) / delta) + 4;
+	}
+
+	h = Math.round(h * 60);
+	if (h < 0) h += 360;
+	if (h >= 360) h -= 360;
+
+	l = (cmax + cmin) / 2;
+	s = (delta === 0) ? 0 : delta / (1 - Math.abs(2 * l - 1));
+
+	s = Math.round(s * 100);
+	l = Math.round(l * 100);
+
+	return [h, s, l];
+}
+
+
+
+export function hsl2hsv (hsl: number[]) : number[] {
+	const [h, s, l] = hsl;
+	const v = Math.round(l + (s*Math.min(l, 100-l)/100));
+	let s2 = 0;
+
+	if (v !== 0) {
+		s2 = Math.round(2 * 100 * (1 - l/v));
+	}
+	return [h, s2, v];
+}
+
+export function hsv2hsl (hsv: number[]) : number[] {
+	const [h, s, v] = hsv;
+	const l = Math.round(v - v*s/200);
+	let s2 = 0;
+
+	if (l !== 0 && l !== 100) {
+		s2 = Math.round(100 * (v-l)/Math.min(l, 100-l));
+	}
+	return [h, s2, l];
+}
+
+

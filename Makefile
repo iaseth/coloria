@@ -3,7 +3,7 @@ default: ts test
 
 prepare: ts test license readme
 
-ts:
+ts: clean
 	tsc
 
 test:
