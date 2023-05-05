@@ -123,11 +123,12 @@ export function hsvToHsl (hsv: number[]) : number[] {
 
 
 
-export function hsvTorgb (hsv: number[]) : number[] {
+export function hsvToRgb (hsv: number[]) : number[] {
 	const hsl = hsvToHsl(hsv);
 	return hslToRgb(hsl);
 }
-export function rgbTohsv (rgb: number[]) : number[] {
+
+export function rgbToHsv (rgb: number[]) : number[] {
 	const hsl = rgbToHsl(rgb);
 	return hslToHsv(hsl);
 }

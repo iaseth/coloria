@@ -1,11 +1,15 @@
 
-export { fromColor, fromHex, fromRgb, getNeutral } from './colorfactory';
+export {
+	fromHex, fromRgb,
+	fromHsl, fromHsv,
+	fromColor, getNeutral,
+} from './colorfactory';
 
 export {
 	hexToRgb, rgbToHex,
 	hslToRgb, rgbToHsl,
 	hslToHsv, hsvToHsl,
-	hsvTorgb, rgbTohsv,
+	hsvToRgb, rgbToHsv,
 } from './colorutils';
 
 export { htmlcolors } from './htmlcolors';

@@ -1,5 +1,5 @@
 import { Color, DEFAULT_COLOR_NAME } from "./color";
-import { hexToRgb, rgbToHex } from "./colorutils";
+import { hexToRgb, hslToRgb, hsvToRgb } from "./colorutils";
 
 
 
@@ -19,6 +19,26 @@ export function fromRgb (rgb: number[], name: string=DEFAULT_COLOR_NAME) : Color
 	}
 	return null;
 }
+
+
+export function fromHsl (hsl: number[], name: string=DEFAULT_COLOR_NAME) : Color|null {
+	const rgb = hslToRgb(hsl);
+	if (rgb) {
+		const color = new Color(rgb, name);
+		return color;
+	}
+	return null;
+}
+
+export function fromHsv (hsv: number[], name: string=DEFAULT_COLOR_NAME) : Color|null {
+	const rgb = hsvToRgb(hsv);
+	if (rgb) {
+		const color = new Color(rgb, name);
+		return color;
+	}
+	return null;
+}
+
 
 export function fromColor (color: Color, name: string=DEFAULT_COLOR_NAME) : Color|null {
 	if (color) {
