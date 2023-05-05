@@ -30,30 +30,48 @@ export class Color {
 	g: number = 0;
 	b: number = 0;
 	a: number = 100;
-	hex: string;
+	hex: string = "#000";
+
 	readonly name: string;
 	readonly codeName: string;
 	value: number = 500;
 
 	constructor(rgb: number[], name: string=DEFAULT_COLOR_NAME) {
+		this.setRgb(rgb);
+		this.name = name.trim();
+		this.codeName = sanitizeCodeName(this.name);
+	}
+
+	setRgb (rgb: number[]) {
 		if (rgb && rgb.length >= 3) {
 			this.r = rgb[0] % 256;
 			this.g = rgb[1] % 256;
 			this.b = rgb[2] % 256;
 		}
-
 		this.hex = rgbToHex(this.rgb);
-		this.name = name.trim();
-		this.codeName = sanitizeCodeName(this.name);
 	}
+
 
 	get rgb () : number[] {
 		return [this.r, this.g, this.b];
 	}
 
+	get hsl () : number[] {
+		return [0, 0, 0];
+	}
+
+	get hsv () : number[] {
+		return [0, 0, 0];
+	}
+
+	get hsb () : number[] {
+		return [0, 0, 0];
+	}
+
 	get valueS () : string {
 		return `${this.value}`;
 	}
+
 
 	makeCopy (name: string|null=null) : Color {
 		const copy = new Color(this.rgb, name || this.name);
