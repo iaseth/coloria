@@ -36,7 +36,9 @@ export function hexToRgb (hex: string) : number[]|null {
 
 
 export function hslToRgb (hsl: number[]) : number[] {
-	const [h, s, l] = hsl;
+	const h = hsl[0];
+	const s = hsl[1] / 100;
+	const l = hsl[2] / 100;
 
 	const c = (1 - Math.abs(2 * l - 1)) * s;
 	const x = c * (1 - Math.abs((h / 60) % 2 - 1));

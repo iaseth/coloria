@@ -72,6 +72,18 @@ export class Color {
 		return `${this.value}`;
 	}
 
+	get bgStyle () : Object {
+		return {
+			backgroundColor: this.hex
+		};
+	}
+
+	get textStyle () : Object {
+		return {
+			color: this.hex
+		};
+	}
+
 
 	makeCopy (name: string|null=null) : Color {
 		const copy = new Color(this.rgb, name || this.name);

@@ -31,10 +31,16 @@ test("rgbToHsl", () => {
 	const { rgbToHsl } = coloria;
 
 	expect(rgbToHsl([0, 0, 0])).toStrictEqual([0, 0, 0]);
+	expect(rgbToHsl([255, 0, 0])).toStrictEqual([0, 100, 50]);
+	expect(rgbToHsl([0, 255, 0])).toStrictEqual([120, 100, 50]);
+	expect(rgbToHsl([0, 0, 255])).toStrictEqual([240, 100, 50]);
 });
 
 test("hslToRgb", () => {
 	const { hslToRgb } = coloria;
 
 	expect(hslToRgb([0, 0, 0])).toStrictEqual([0, 0, 0]);
+	expect(hslToRgb([0, 100, 50])).toStrictEqual([255, 0, 0]);
+	expect(hslToRgb([120, 100, 50])).toStrictEqual([0, 255, 0]);
+	expect(hslToRgb([240, 100, 50])).toStrictEqual([0, 0, 255]);
 });
