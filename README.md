@@ -97,7 +97,7 @@ const tones = color.getTones(10);
 | ------------- | ------------------------------------------------------------------------------ |
 | `Name`        | `coloria`                                                                      |
 | `Description` | `Coloria is a JavaScript library for color conversion and palette generation.` |
-| `Version`     | `1.0.4`                                                                        |
+| `Version`     | `1.0.5`                                                                        |
 | `Author`      | `iaseth`                                                                       |
 | `Homepage`    | `https://github.com/iaseth/coloria`                                            |
 | `Repository`  | `iaseth/coloria`                                                               |

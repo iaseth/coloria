@@ -97,9 +97,9 @@ export class Color {
 
 
 	getPalette (n: number = 5) : Color[] {
-		const shades = this.getShades(n).reverse();
-		const tints = this.getTints(n);
-		const palette = [...shades, this.makeCopy(), ...tints];
+		const tints = this.getTints(n).reverse();
+		const shades = this.getShades(n);
+		const palette = [...tints, this.makeCopy(), ...shades];
 		return palette;
 	}
 
