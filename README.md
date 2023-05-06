@@ -10,10 +10,6 @@
     * [Getting started](#getting-started)
         * [Importing Coloria](#importing-coloria)
         * [Creating Colors](#creating-colors)
-            * [Creating Colors from RGB values](#creating-colors-from-rgb-values)
-            * [Creating Colors from Hex](#creating-colors-from-hex)
-            * [Creating Colors from existing Colors](#creating-colors-from-existing-colors)
-            * [Creating Neutral Colors](#creating-neutral-colors)
         * [Getting Shades](#getting-shades)
     * [Package details](#package-details)
     * [Dependencies](#dependencies)
@@ -45,36 +41,53 @@ Or if you are using CommonJS modules:
 const coloria = require("coloria");
 ```
 
+
+
 ### Creating Colors
 The `coloria` object contains many factory methods that allow you to create colors from your favorite format:
 
-#### Creating Colors from RGB values
-```
-const black = coloria.fromRgb([0, 0, 0], "Black");
-```
-Here, the second argument is the `colorName`, which is optional.
+* **Creating Colors from RGB value**
+    ```
+    const black = coloria.fromRgb([0, 0, 0], "Black");
+    ```
+    Here, the second argument is the `colorName`, which is optional.
 
-#### Creating Colors from Hex
-```
-const red = coloria.fromHex("#ff0000", "Red");
-```
+* **Creating Colors from Hex value**
+    ```
+    const red = coloria.fromHex("#ff0000", "Red");
+    ```
 
-#### Creating Colors from existing Colors
-```
-const anotherRed = coloria.fromColor(red, "AnotherRed");
-```
-Or, you can also do this with a method on the Color object:
-```
-const anotherRed = red.makeCopy("AnotherRed");
-```
+* **Creating Colors from HSL value**
+    ```
+    const red = coloria.fromHsl([0, 100, 50], "Red");
+    ```
 
-#### Creating Neutral Colors
-Neutral colors are those which have identical `r`, `g` and `b` values.
-Examples are black, white and grey.
-Because of how frequently they are used, there is a special `getNeutral()` factory method to help keep your code DRY:
-```
-const black = coloria.getNeutral(0, "Black");
-```
+* **Creating Colors from HSV value**
+    ```
+    const red = coloria.fromHsv([0, 100, 100], "Red");
+    ```
+
+* **Creating Colors from existing Colors**
+    ```
+    const anotherRed = coloria.fromColor(red, "AnotherRed");
+    ```
+    Or, you can also do this with a method on the Color object:
+    ```
+    const anotherRed = red.makeCopy("AnotherRed");
+    ```
+
+* **Creating Neutral Colors**
+    Neutral colors are those which have identical `r`, `g` and `b` values.
+    Examples are black, white and grey.
+    Because of how frequently they are used, there is a special `getNeutral()` factory method to help you easily create a neutral color:
+    ```
+    const black = coloria.getNeutral(0, "Black");
+    ```
+    This is same as writing:
+    ```
+    const black = coloria.fromRgb([0, 0, 0], "Black");
+    ```
+
 
 
 ### Getting Shades
